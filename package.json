@@ -1,9 +1,15 @@
 {
-  "name": "xign-string-decode",
-  "version": "1.0.0",
+  "name": "xumm-string-decode",
+  "version": "0.1.0",
   "license": "ISC",
-  "description": "A JavaScript API lib to decode strings for the @XRPLLabs xign app",
-  "files": [],
+  "description": "JS/TS lib to decode strings for the @XRPLLabs XUMM app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.d.ts"
+  ],
   "dependencies": {
     "debug": "^4.1.1"
   },
@@ -22,14 +28,12 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "mkdir -p dist/ && tsc --build",
+    "compile": "rm -r dist/* && mkdir -p dist/ && tsc --build",
     "watch": "tsc -w",
     "start": "tsc --build -w",
-    "dev": "clear;nodemon dist/evaluate.js",
+    "dev": "clear;nodemon dist/evaluate.dev.js",
     "prepublish": "npm run clean && npm run compile && npm run test && npm run build",
     "test": "jest --ci --verbose",
-    "testdebug": "clear;DEBUG=app* ./node_modules/jest/bin/jest.js --verbose",
-    "testverbose": "npm run testdebug",
     "lint": "tslint -p ./"
   },
   "directories": {
