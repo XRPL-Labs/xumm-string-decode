@@ -1,0 +1,43 @@
+*.dev.ts
+
+# .gitignore
+
+# Ignore package locks other than Yarn.
+package-lock.json
+npm-shrinkwrap.json
+
+# Ignore vim swap files.
+*.swp
+
+# Ignore Macintosh Desktop Services Store files.
+.DS_Store
+
+# Ignore backup/temps
+*~
+
+# Ignore object files.
+*.o
+tags
+Debug/*.*
+Release/*.*
+
+# Ignore locally installed node_modules
+node_modules
+!test/node_modules
+
+# Ignore tmp directory.
+tmp
+
+# Ignore npm-debug
+npm-debug.log
+
+# Ignore dist folder, built from tsc
+dist/
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+
+.eslintrc
+
+# nyc (istanbul)
+.nyc_output

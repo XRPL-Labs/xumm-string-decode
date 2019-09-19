@@ -1,0 +1,57 @@
+{
+  "name": "xign-string-decode",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "A JavaScript API lib to decode strings for the @XRPLLabs xign app",
+  "files": [],
+  "dependencies": {
+    "debug": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.0.8",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^3.2.0",
+    "ts-node": "8.0.3",
+    "tslint": "^5.16.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^3.4.2",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "3.12.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "mkdir -p dist/ && tsc --build",
+    "watch": "tsc -w",
+    "start": "tsc --build -w",
+    "dev": "clear;nodemon dist/evaluate.js",
+    "prepublish": "npm run clean && npm run compile && npm run test && npm run build",
+    "test": "jest --ci --verbose",
+    "testdebug": "clear;DEBUG=app* ./node_modules/jest/bin/jest.js --verbose",
+    "testverbose": "npm run testdebug",
+    "lint": "tslint -p ./"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/..."
+  },
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": ">=6.12.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*",
+      "src/*"
+    ],
+    "ext": "js",
+    "delay": "100",
+    "events": {
+      "start": "echo \"\\033c\\x1b[36m\"$(date)\"\\n\\x1b[0m\""
+    }
+  }
+}
