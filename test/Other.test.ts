@@ -1,8 +1,7 @@
 'use strict'
 
 import {StringType} from '../src/enums/StringType'
-import StringTypeDetector from '../src/classes/StringTypeDetector'
-import XRPLStringDecoder from '../src'
+import {StringTypeDetector, StringDecoder} from '../src'
 
 type InvalidType = {
   string: string
@@ -14,7 +13,6 @@ type ValidType = {
   type:
     'XummPayloadReference' |
     'XummPairingToken' |
-    'XrplDestination' |
     'XrplTransactionHash' |
     'XrplSecret' |
     'XrplSignedTransaction' |
@@ -22,7 +20,6 @@ type ValidType = {
   output:
     StringType.XummPayloadReference |
     StringType.XummPairingToken |
-    StringType.XrplDestination |
     StringType.XrplTransactionHash |
     StringType.XrplSecret |
     StringType.XrplSignedTransaction |
@@ -45,7 +42,7 @@ describe('Non-XrplDestination', () => {
     const detected = new StringTypeDetector(g.string)
     it('should detect and decode [ ' + StringType[detected.getType()] + ' ] from [ ' + g.string + ' ]', () => {
       expect(StringType[detected.getType()]).toEqual(g.type)
-      const decoded = new XRPLStringDecoder(detected)
+      const decoded = new StringDecoder(detected)
       expect(decoded['get' + StringType[detected.getType()]]()).toEqual(g.output)
     })
   })

@@ -1,8 +1,7 @@
 'use strict'
 
 import {StringType} from '../src/enums/StringType'
-import StringTypeDetector from '../src/classes/StringTypeDetector'
-import XRPLStringDecoder from '../src'
+import {StringTypeDetector, StringDecoder} from '../src'
 
 type XrplDestinationTest = {
   string: string
@@ -25,7 +24,7 @@ describe('XrplDestination', () => {
     const detected = new StringTypeDetector(g.string)
     it('should decode [ ' + g.string + ' ]', () => {
       expect(detected.getType()).toEqual(StringType.XrplDestination)
-      const decoded = new XRPLStringDecoder(detected)
+      const decoded = new StringDecoder(detected)
       expect(decoded.getXrplDestination()).toEqual(g.output)
     })
   })
