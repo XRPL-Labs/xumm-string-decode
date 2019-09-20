@@ -1,4 +1,4 @@
-export enum StringType {
+enum StringType {
   XummPayloadReference,
   XummPairingToken,
   XrplTransactionHash,
@@ -9,3 +9,5 @@ export enum StringType {
   IlpStreamInstruction,
   Invalid
 }
+
+export default StringType

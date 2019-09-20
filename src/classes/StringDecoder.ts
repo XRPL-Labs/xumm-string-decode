@@ -8,7 +8,7 @@ import {
   XrplSignedTransaction,
   XrplTransactionTemplate
 } from '../types'
-import {SecretType} from '../enums/SecretType'
+import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
 
 class StringDecoder {

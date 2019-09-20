@@ -1,4 +1,4 @@
-import {SecretType} from '../enums/SecretType'
+import SecretType from '../enums/SecretType'
 
 export type XrplSecret = {
   secretType: SecretType,

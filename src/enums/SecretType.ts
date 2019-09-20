@@ -1,5 +1,7 @@
-export enum SecretType {
+enum SecretType {
   FamilySeed,
   Hex,
   Mnemonic
 }
+
+export default SecretType

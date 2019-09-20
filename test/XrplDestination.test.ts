@@ -1,7 +1,6 @@
 'use strict'
 
-import {StringType} from '../src/enums/StringType'
-import {StringTypeDetector, StringDecoder} from '../src'
+import {StringTypeDetector, StringDecoder, StringType} from '../src'
 
 type XrplDestinationTest = {
   string: string

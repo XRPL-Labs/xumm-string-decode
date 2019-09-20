@@ -1,4 +1,4 @@
-import {StringType} from '../enums/StringType'
+import StringType from '../enums/StringType'
 import {URL} from 'url'
 
 class StringTypeDetector {
