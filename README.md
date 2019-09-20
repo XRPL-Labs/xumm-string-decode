@@ -112,8 +112,8 @@ So: you can call the getXxxYyy method based on the detected string type, or just
 > The `SecretType` (enum) can be one of:
 
 > ```
-{ FamilySeed, Hex, Mnemonic }
-```
+> { FamilySeed, Hex, Mnemonic }
+> ```
 
 ##### XrplSignedTransaction
 
