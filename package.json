@@ -45,7 +45,7 @@
   },
   "readmeFilename": "README.md",
   "engines": {
-    "node": ">=12.4.0"
+    "node": ">=10.16.3"
   },
   "nodemonConfig": {
     "ignore": [
