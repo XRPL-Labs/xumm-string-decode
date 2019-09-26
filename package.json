@@ -27,12 +27,12 @@
     "webpack": "3.12.0"
   },
   "scripts": {
+    "build": "tsc",
     "clean": "rm -rf dist",
-    "compile": "rm -r dist/* && mkdir -p dist/ && tsc --build",
     "watch": "tsc -w",
     "start": "tsc --build -w",
     "dev": "clear;nodemon dist/evaluate.dev.js",
-    "prepublish": "npm run clean && npm run compile && npm run test && npm run build",
+    "prepublish": "npm run clean && npm run test && npm run build",
     "test": "jest --ci --verbose",
     "lint": "tslint -p ./"
   },
