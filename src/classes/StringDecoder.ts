@@ -10,6 +10,7 @@ import {
 } from '../types'
 import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
+import {URL} from 'url'
 
 class StringDecoder {
   input: StringTypeDetector
