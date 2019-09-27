@@ -3,7 +3,7 @@
     "lib": [
       "es2017",
       "es2015",
-      "dom",
+      "dom"
     ],
     "target": "es6",
     "declaration": true,
@@ -23,6 +23,13 @@
     "outDir": "./dist",
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "test"]
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "compileOnSave": true
 }
