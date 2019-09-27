@@ -1,6 +1,6 @@
 {
   "name": "xumm-string-decode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "ISC",
   "description": "JS/TS lib to decode strings for the xrpl-labs.com XUMM app",
   "main": "dist/index.js",
