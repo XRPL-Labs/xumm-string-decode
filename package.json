@@ -35,14 +35,17 @@
     "dev": "clear;node node_modules/nodemon/bin/nodemon.js dist/evaluate.dev.js",
     "prepublish": "npm run clean && npm run test && npm run build",
     "test": "jest --ci --verbose",
-    "lint": "tslint -p ./"
+    "lint": "tslint -p ./",
+    "test-8": "docker run -t --rm -v $(pwd):/usr/src/app node:8-slim sh -c 'cd /usr/src/app/; npm run test'",
+    "test-10": "docker run -t --rm -v $(pwd):/usr/src/app node:10-slim sh -c 'cd /usr/src/app/; npm run test'",
+    "test-12": "docker run -t --rm -v $(pwd):/usr/src/app node:12-slim sh -c 'cd /usr/src/app/; npm run test'"
   },
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/..."
+    "url": "git://github.com/XRPL-Labs/xumm-string-decode.git"
   },
   "readmeFilename": "README.md",
   "engines": {
