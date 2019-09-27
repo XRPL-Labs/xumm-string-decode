@@ -10,7 +10,8 @@ import {
 } from '../types'
 import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
-import {URL} from 'url'
+import * as URL from 'url'
+import * as URLSearchParams from '@ungap/url-search-params'
 
 class StringDecoder {
   input: StringTypeDetector
@@ -63,9 +64,8 @@ class StringDecoder {
          * Try parsing
          */
         try {
-          // console.log(`<< ${tryParseUri} >>`)
-          const url = new URL(tryParseUri)
-          searchParams = url.searchParams
+          const url = URL.parse(tryParseUri)
+          searchParams = new URLSearchParams(url.query || '')
         } catch (e) {
           // Continue
         }

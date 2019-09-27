@@ -1,5 +1,6 @@
 import StringType from '../enums/StringType'
-import {URL} from 'url'
+import * as URL from 'url'
+import * as URLSearchParams from '@ungap/url-search-params'
 
 class StringTypeDetector {
   private input: string
@@ -28,7 +29,7 @@ class StringTypeDetector {
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
 
     try {
-      const url = new URL(this.input)
+      const url = URL.parse(this.input)
 
       /**
        * Check for xumm deeplink syntax
@@ -58,10 +59,11 @@ class StringTypeDetector {
       /**
        * Check for "full Ripple URI" syntax
        */
-      if (url.searchParams.get('to')) {
+      const searchParams = new URLSearchParams(url.query || '')
+      if (searchParams.get('to')) {
         this.url = true
-        this.strippedInput = url.searchParams.toString()
-        this.searchParams = url.searchParams
+        this.strippedInput = searchParams.toString()
+        this.searchParams = searchParams
       } else if (url.search !== '' && possibleAccountAddress.test(url.search)) {
         this.strippedInput = url.search.substring(1)
       }
