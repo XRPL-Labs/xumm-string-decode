@@ -6,7 +6,8 @@ import {
   XrplTransactionHash,
   XrplSecret,
   XrplSignedTransaction,
-  XrplTransactionTemplate
+  XrplTransactionTemplate,
+  PayId
 } from '../types'
 import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
@@ -135,6 +136,19 @@ class StringDecoder {
   getXummPairingToken() : XummPairingToken {
     return {
       token: this.input.getStrippedInput()
+    }
+  }
+
+  getPayId() : PayId {
+    const payIdAsUrl = URL.parse(this.input.getStrippedInput().replace(/^\$/, 'https://'))
+
+    return {
+      payId: this.input.getStrippedInput(),
+      url: payIdAsUrl.href + (
+        payIdAsUrl.path === '/'
+          ? '.well-known/pay'
+          : ''
+      )
     }
   }
 

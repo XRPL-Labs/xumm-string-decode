@@ -105,5 +105,29 @@
         "output": {
             "txhash": "D6E28760A232FD5726DB87CBC88189947E0672BBA2D1246CA400777877A5486A"
         }
+    },
+    {
+        "string": "https://xumm.app/detect/%24some.host.name%2Ftest%3Fq%3Dtrue",
+        "type": "PayId",
+        "output": {
+            "payId": "$some.host.name/test?q=true",
+            "url": "https://some.host.name/test?q=true"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/$some.host.name/",
+        "type": "PayId",
+        "output": {
+            "payId": "$some.host.name",
+            "url": "https://some.host.name/.well-known/pay"
+        }
+    },
+    {
+        "string": "$some.host.name/wietse/",
+        "type": "PayId",
+        "output": {
+            "payId": "$some.host.name/wietse",
+            "url": "https://some.host.name/wietse"
+        }
     }
 ]

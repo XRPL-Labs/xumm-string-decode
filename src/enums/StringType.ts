@@ -7,6 +7,7 @@ enum StringType {
   XrplTransactionTemplate,
   XrplSecret,
   IlpStreamInstruction,
+  PayId,
   Invalid
 }
 

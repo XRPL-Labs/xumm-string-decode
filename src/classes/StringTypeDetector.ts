@@ -27,6 +27,7 @@ class StringTypeDetector {
     const possiblePrivateKey = new RegExp(/^(ED|00)([A-F0-9]{2}){32}$/i)
     const possibleTransactionBlob = new RegExp(/([A-F0-9]{2}){34,}/i)
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
+    const possiblePayId = new RegExp(/^\$[a-z0-9-_\.]+/i)
 
     try {
       const url = URL.parse(this.input)
@@ -78,6 +79,18 @@ class StringTypeDetector {
 
     if (possiblePrivateKey.test(this.strippedInput)) {
       return StringType.XrplSecret
+    }
+
+    if (possiblePayId.test(decodeURIComponent(this.strippedInput))) {
+      this.strippedInput = decodeURIComponent(this.input).replace(/\/+$/, '')
+      try {
+        const payIdUrl = URL.parse(this.strippedInput.replace(/^\$/, 'https://'))
+        if (payIdUrl.host) {
+          return StringType.PayId
+        }
+      } catch (e) {
+        // Continue
+      }
     }
 
     if (possibleTransactionBlob.test(this.strippedInput)) {

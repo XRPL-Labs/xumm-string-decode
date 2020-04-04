@@ -15,14 +15,16 @@ type ValidType = {
     'XrplTransactionHash' |
     'XrplSecret' |
     'XrplSignedTransaction' |
-    'XrplTransactionTemplate'
+    'XrplTransactionTemplate' |
+    'PayId'
   output:
     StringType.XummPayloadReference |
     StringType.XummPairingToken |
     StringType.XrplTransactionHash |
     StringType.XrplSecret |
     StringType.XrplSignedTransaction |
-    StringType.XrplTransactionTemplate
+    StringType.XrplTransactionTemplate |
+    StringType.PayId
 }
 
 describe('Non-XrplDestination', () => {
