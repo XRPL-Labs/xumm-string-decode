@@ -11,6 +11,7 @@ Supports:
   - XrplSecret (mnemonic, family seed (s....) or HEX private key)
   - XrplSignedTransaction (signed HEX blob)
   - XrplTransactionTemplate (HEX encoded JSON transaction template)
+  - PayId ($host/path where XrplDestination can be retrieved)
 
 The lib. exports:
 
@@ -57,6 +58,7 @@ Other available methods (you probably won't need to use:
   - `StringType.XrplTransactionTemplate`
   - `StringType.XrplSecret`
   - `StringType.IlpStreamInstruction`
+  - `StringType.PayId`
 
 ### 2. Decode values
 
@@ -77,6 +79,7 @@ The methods available on the `StringDecoder` object:
   - `getXrplTransactionHash()`, returns _XrplTransactionHash_
   - `getXrplSignedTransaction()`, returns _XrplSignedTransaction_
   - `getXrplTransactionTemplate()`, returns _XrplTransactionTemplate_
+  - `getPayId()`, returns _PayId_
 
 So: you can call the getXxxYyy method based on the detected string type, or just get the right one at once:
 
@@ -152,5 +155,14 @@ So: you can call the getXxxYyy method based on the detected string type, or just
 ```
 {
   uuid: string
+}
+```
+
+##### PayId
+
+```
+{
+  payId: string,
+  url: string
 }
 ```
