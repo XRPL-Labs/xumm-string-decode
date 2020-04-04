@@ -51,7 +51,7 @@ class StringTypeDetector {
             return StringType.XrplTransactionHash
           }
           if (xummUrl[0].toLowerCase() === 'detect') {
-            this.input = url.pathname.replace(/\/+/g, '/').split('/').slice(2).join('/') + url.search
+            this.input = url.pathname.replace(/\/+/g, '/').split('/').slice(2).join('/') + (url.search || '')
           }
         }
       }
