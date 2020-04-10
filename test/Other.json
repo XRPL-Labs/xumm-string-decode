@@ -107,11 +107,11 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/%24some.host.name%2Ftest%3Fq%3Dtrue",
+        "string": "https://xumm.app/detect/test%24some.host.name/",
         "type": "PayId",
         "output": {
-            "payId": "$some.host.name/test?q=true",
-            "url": "https://some.host.name/test?q=true"
+            "payId": "test$some.host.name",
+            "url": "https://some.host.name/test"
         }
     },
     {
@@ -123,10 +123,10 @@
         }
     },
     {
-        "string": "$some.host.name/wietse/",
+        "string": "wietse$some.host.name",
         "type": "PayId",
         "output": {
-            "payId": "$some.host.name/wietse",
+            "payId": "wietse$some.host.name",
             "url": "https://some.host.name/wietse"
         }
     }

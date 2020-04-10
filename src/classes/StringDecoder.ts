@@ -140,7 +140,8 @@ class StringDecoder {
   }
 
   getPayId() : PayId {
-    const payIdAsUrl = URL.parse(this.input.getStrippedInput().replace(/^\$/, 'https://'))
+    const payIdSplitted = this.input.getStrippedInput().split('$')
+    const payIdAsUrl = URL.parse('https://' + payIdSplitted[1] + '/' + payIdSplitted[0])
 
     return {
       payId: this.input.getStrippedInput(),

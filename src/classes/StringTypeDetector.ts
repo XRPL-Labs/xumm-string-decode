@@ -27,7 +27,7 @@ class StringTypeDetector {
     const possiblePrivateKey = new RegExp(/^(ED|00)([A-F0-9]{2}){32}$/i)
     const possibleTransactionBlob = new RegExp(/([A-F0-9]{2}){34,}/i)
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
-    const possiblePayId = new RegExp(/^\$[a-z0-9-_\.]+/i)
+    const possiblePayId = new RegExp(/^(.*)\$([a-z0-9-_\.]+.*)$/i)
 
     try {
       const url = URL.parse(this.input)
@@ -82,10 +82,15 @@ class StringTypeDetector {
     }
 
     if (possiblePayId.test(decodeURIComponent(this.strippedInput))) {
-      this.strippedInput = decodeURIComponent(this.input).replace(/\/+$/, '')
+      const payIdParts = possiblePayId.exec(decodeURIComponent(this.strippedInput).toLowerCase())
       try {
-        const payIdUrl = URL.parse(this.strippedInput.replace(/^\$/, 'https://'))
-        if (payIdUrl.host) {
+        const payIdUrl = URL.parse('https://' + payIdParts[2] + '/' + payIdParts[1])
+        let pathValid = payIdUrl.path === null
+        if (payIdParts[1] === payIdUrl.path.replace(/^\/+/, '').replace(/\/+$/, '')) {
+          pathValid = true
+        }
+        if (payIdUrl.host && pathValid) {
+          this.strippedInput = payIdParts[1] + '$' + payIdParts[2]
           return StringType.PayId
         }
       } catch (e) {
