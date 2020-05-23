@@ -164,5 +164,12 @@
             "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
             "tag": 123
         }
+    },
+    {
+        "string": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag:\n123",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
+            "tag": 123
+        }
     }
 ]
