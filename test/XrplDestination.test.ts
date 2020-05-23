@@ -21,7 +21,7 @@ describe('XrplDestination', () => {
     return g.output !== false
   }).forEach((g: XrplDestinationTest) => {
     const detected = new StringTypeDetector(g.string)
-    it('should decode [ ' + g.string + ' ]', () => {
+    it('should decode [ ' + JSON.stringify(g.string) + ' ]', () => {
       expect(detected.getType()).toEqual(StringType.XrplDestination)
       const decoded = new StringDecoder(detected)
       expect(decoded.getXrplDestination()).toEqual(g.output)

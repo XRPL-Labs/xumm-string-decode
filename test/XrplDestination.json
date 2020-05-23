@@ -164,5 +164,38 @@
             "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
             "tag": 123
         }
+    },
+    {
+        "string": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag:\n12345\n\nTest 123",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
+            "tag": 12345
+        }
+    },
+    {
+        "string": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag:\n9876",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
+            "tag": 9876
+        }
+    },
+    {
+        "string": "Deposit to: rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag:\n45678 and make\n\nsure...",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
+            "tag": 45678
+        }
+    },
+    {
+        "string": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag and other info: ...",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY"
+        }
+    },
+    {
+        "string": "Deposit to: rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY\n\nDestination Tag and other info: ...",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY"
+        }
     }
 ]

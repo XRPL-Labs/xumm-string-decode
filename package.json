@@ -1,6 +1,6 @@
 {
   "name": "xumm-string-decode",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "ISC",
   "description": "JS/TS lib to decode strings for the xrpl-labs.com XUMM app",
   "main": "dist/index.js",
@@ -16,11 +16,11 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.9.1",
+    "@types/jest": "*",
     "@types/node": "^12.12.34",
-    "jest": "^24.9.0",
+    "jest": "^26.0.1",
     "nodemon": "^1.19.4",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^26.0.0",
     "ts-loader": "^3.2.0",
     "ts-node": "8.0.3",
     "tslint": "^5.20.1",
