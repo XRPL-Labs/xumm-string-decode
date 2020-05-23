@@ -72,6 +72,10 @@ class StringTypeDetector {
       // Continue
     }
 
+    if (possibleAccountAddress.test(this.strippedInput) && this.strippedInput.trim().match(/[\r\n]/)) {
+      return StringType.XrplDestination
+    }
+
     if (possibleFamSeed.test(this.strippedInput)) {
       this.strippedInput = this.strippedInput.split(':').reverse()[0].trim()
       return StringType.XrplSecret
