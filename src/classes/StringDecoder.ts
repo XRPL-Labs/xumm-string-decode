@@ -51,8 +51,8 @@ class StringDecoder {
           && !this.input.getRawInput().match(/[\?&]to=r[a-zA-Z0-9]{20,}/)) {
           // scheme://uri/folders?rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY:123
           tryParseUri = this.input.getRawInput().replace(/\?/, '?to=')
-        } else if (this.input.getRawInput().trim().match(/\n/)
-          && this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}.*[\r\n\t]+/g)) {
+        } else if (this.input.getRawInput().trim().match(/[\n\r]/)
+          && this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}.*[\r\n\t]+|[\r\n\t]+.*r[a-zA-Z0-9]{20,}/g)) {
           const to = this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}/)
           const tag = this.input.getRawInput().slice(to.index + to[0].length).match(/[0-9]+/g)
           tryParseUri = 'https://localhost/?to=' + to[0] +
