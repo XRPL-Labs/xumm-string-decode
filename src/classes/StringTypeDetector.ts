@@ -23,7 +23,7 @@ class StringTypeDetector {
     const signRequest = new RegExp(`^${uuidv4regExp}$`, 'i')
     const pairing = new RegExp(`^${uuidv4regExp}\.${uuidv4regExp}$`, 'i')
     const possibleAccountAddress = new RegExp(/[rX][rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{23,50}/)
-    const possibleFamSeed = new RegExp(/(^s|:[ \t])[rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{20,50}/)
+    const possibleFamSeed = new RegExp(/(^s|:[ \t]s)[rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{20,}/)
     const possiblePrivateKey = new RegExp(/^(ED|00)([A-F0-9]{2}){32}$/i)
     const possibleTransactionBlob = new RegExp(/([A-F0-9]{2}){34,}/i)
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
@@ -117,7 +117,7 @@ class StringTypeDetector {
     }
 
     if (possibleAccountAddress.test(this.strippedInput)) {
-      this.input = this.input.replace(/^ripple:/, '')
+      this.input = this.input.replace(/^ripple:[ ]*/i, '')
       this.strippedInput = possibleAccountAddress.exec(this.strippedInput)[0]
       return StringType.XrplDestination
     }
