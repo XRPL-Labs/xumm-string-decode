@@ -38,6 +38,12 @@
         }
     },
     {
+        "string": "Ripple: rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT",
+        "output": {
+            "to": "rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT"
+        }
+    },
+    {
         "string": "ripple:rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT?tag=123",
         "output": {
             "to": "rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT",
