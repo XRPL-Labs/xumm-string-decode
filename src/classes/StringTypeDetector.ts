@@ -117,7 +117,7 @@ class StringTypeDetector {
     }
 
     if (possibleAccountAddress.test(this.strippedInput)) {
-      this.input = this.input.replace(/^ripple:[ ]*/i, '')
+      this.input = this.input.replace(/^(ripple|xrp):[ ]*/i, '')
       this.strippedInput = possibleAccountAddress.exec(this.strippedInput)[0]
       return StringType.XrplDestination
     }

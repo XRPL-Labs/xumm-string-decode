@@ -215,5 +215,12 @@
         "output": {
             "to": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn"
         }
+    },
+    {
+        "string": "xrp:rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg?dt=123",
+        "output": {
+            "to": "rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg",
+            "tag": 123
+        }
     }
 ]
