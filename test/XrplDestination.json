@@ -222,5 +222,12 @@
             "to": "rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg",
             "tag": 123
         }
+    },
+    {
+        "string": "xxxxx:rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg?dt=987",
+        "output": {
+            "to": "rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg",
+            "tag": 987
+        }
     }
 ]
