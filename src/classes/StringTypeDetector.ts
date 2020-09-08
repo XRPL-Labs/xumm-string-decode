@@ -85,8 +85,15 @@ class StringTypeDetector {
       return StringType.XrplSecret
     }
 
-    if (possiblePayId.test(decodeURIComponent(this.strippedInput))) {
-      const payIdParts = possiblePayId.exec(decodeURIComponent(this.strippedInput).toLowerCase())
+    let uriDecodedStrippedInput
+    try {
+      uriDecodedStrippedInput = decodeURIComponent(this.strippedInput)
+    } catch (e) {
+      //
+    }
+
+    if (uriDecodedStrippedInput && possiblePayId.test(uriDecodedStrippedInput)) {
+      const payIdParts = possiblePayId.exec(uriDecodedStrippedInput.toLowerCase())
       try {
         const payIdUrl = URL.parse('https://' + payIdParts[2] + '/' + payIdParts[1])
         let pathValid = payIdUrl.path === null
