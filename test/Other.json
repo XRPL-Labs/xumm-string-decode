@@ -136,5 +136,34 @@
         "output": {
             "tag": 32768
         }
+    },
+    {
+        "string": "0",
+        "type": "XrplDestinationTag",
+        "output": {
+            "tag": 0
+        }
+    },
+    {
+        "string": "4294967295",
+        "type": "XrplDestinationTag",
+        "output": {
+            "tag": 4294967295
+        }
+    },
+    {
+        "string": "4294967296",
+        "output": false
+    },
+    {
+        "string": "000000123",
+        "type": "XrplDestinationTag",
+        "output": {
+            "tag": 123
+        }
+    },
+    {
+        "string": "-123",
+        "output": false
     }
 ]

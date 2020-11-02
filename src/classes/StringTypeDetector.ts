@@ -28,7 +28,7 @@ class StringTypeDetector {
     const possibleTransactionBlob = new RegExp(/([A-F0-9]{2}){34,}/i)
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
     const possiblePayId = new RegExp(/^(.*)\$([a-z0-9-_\.]+.*)$/i)
-    const possibleDestinationTag = new RegExp(/^(429496729[0-6]|42949672[0-8]\d|4294967[01]\d{2}|429496[0-6]\d{3}|42949[0-5]\d{4}|4294[0-8]\d{5}|429[0-3]\d{6}|42[0-8]\d{7}|4[01]\d{8}|[1-3]\d{9}|[1-9]\d{8}|[1-9]\d{7}|[1-9]\d{6}|[1-9]\d{5}|[1-9]\d{4}|[1-9]\d{3}|[1-9]\d{2}|[1-9]\d|\d)$/g)
+    const possibleDestinationTag = new RegExp(/^(.+:[\t ]*)*([0-9]+)$/)
 
     try {
       const url = URL.parse(this.input)
@@ -139,7 +139,9 @@ class StringTypeDetector {
     }
 
     if(possibleDestinationTag.test(this.strippedInput)){
-      if (Number(this.strippedInput) < Math.pow(2, 32)){
+      const dTagParts = possibleDestinationTag.exec(this.strippedInput)
+      const tag = Number(dTagParts[2])
+      if (tag >= 0 && tag < Math.pow(2, 32)){
         return StringType.XrplDestinationTag
       }
     }
