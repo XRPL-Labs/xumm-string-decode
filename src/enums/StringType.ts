@@ -3,6 +3,7 @@ enum StringType {
   XummPairingToken,
   XrplTransactionHash,
   XrplDestination,
+  XrplDestinationTag,
   XrplSignedTransaction,
   XrplTransactionTemplate,
   XrplSecret,

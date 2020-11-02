@@ -3,6 +3,7 @@ import {
   XummPayloadReference,
   XummPairingToken,
   XrplDestination,
+  XrplDestinationTag,
   XrplTransactionHash,
   XrplSecret,
   XrplSignedTransaction,
@@ -108,6 +109,13 @@ class StringDecoder {
     }
 
     return result
+  }
+
+
+  getXrplDestinationTag() : XrplDestinationTag {
+    return {
+      tag: Number(this.input.getStrippedInput())
+    }
   }
 
   getXrplSecret() : XrplSecret {
