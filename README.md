@@ -5,6 +5,7 @@ JS/TS lib to decode strings for the xrpl-labs.com XUMM app (when scanning a QR c
 Supports:
 
   - XrplDestination, eg. r... or [X...](https://xrpaddress.info/), optionally URI syntax (containing amount, IOU, destination tag, etc.)
+  - XrplDestinationTag (32-bit unsigned integers)
   - XummPayloadReference (UUIDv4)
   - XummPairingToken
   - XrplTransactionHash
