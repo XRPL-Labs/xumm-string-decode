@@ -129,5 +129,12 @@
             "payId": "wietse$some.host.name",
             "url": "https://some.host.name/wietse"
         }
+    },
+    {
+        "string": "32768",
+        "type": "XrplDestinationTag",
+        "output": {
+            "tag": 32768
+        }
     }
 ]

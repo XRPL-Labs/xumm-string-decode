@@ -54,6 +54,7 @@ Other available methods (you probably won't need to use:
   - `StringType.XummPairingToken`
   - `StringType.XrplTransactionHash`
   - `StringType.XrplDestination`
+  - `StringType.XrplDestinationTag`
   - `StringType.XrplSignedTransaction`
   - `StringType.XrplTransactionTemplate`
   - `StringType.XrplSecret`
@@ -73,6 +74,7 @@ console.log(decoded.getAny())
 The methods available on the `StringDecoder` object:
 
   - `getXrplDestination()`, returns _XrplDestination_
+  - `getXrplDestinationTag()`, returns _XrplDestinationTag_
   - `getXrplSecret()`, returns _XrplSecret_
   - `getXummPayloadReference()`, returns _XummPayloadReference_
   - `getXummPairingToken()`, returns _XummPairingToken_
@@ -98,6 +100,14 @@ So: you can call the getXxxYyy method based on the detected string type, or just
   amount?: string
   currency?: string
   issuer?: string
+}
+```
+
+##### XrplDestinationTag
+
+```
+{
+  tag: number
 }
 ```
 
