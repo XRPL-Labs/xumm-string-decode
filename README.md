@@ -8,6 +8,7 @@ Supports:
   - XrplDestinationTag (32-bit unsigned integers)
   - XummPayloadReference (UUIDv4)
   - XummPairingToken
+  - XummTranslation
   - XrplTransactionHash
   - XrplSecret (mnemonic, family seed (s....) or HEX private key)
   - XrplSignedTransaction (signed HEX blob)
@@ -53,6 +54,7 @@ Other available methods (you probably won't need to use:
   - `StringType.Invalid`
   - `StringType.XummPayloadReference`
   - `StringType.XummPairingToken`
+  - `StringType.XummTranslation`
   - `StringType.XrplTransactionHash`
   - `StringType.XrplDestination`
   - `StringType.XrplDestinationTag`
@@ -79,6 +81,7 @@ The methods available on the `StringDecoder` object:
   - `getXrplSecret()`, returns _XrplSecret_
   - `getXummPayloadReference()`, returns _XummPayloadReference_
   - `getXummPairingToken()`, returns _XummPairingToken_
+  - `getXummTranslation()`, returns _XummTranslation_
   - `getXrplTransactionHash()`, returns _XrplTransactionHash_
   - `getXrplSignedTransaction()`, returns _XrplSignedTransaction_
   - `getXrplTransactionTemplate()`, returns _XrplTransactionTemplate_
@@ -109,6 +112,14 @@ So: you can call the getXxxYyy method based on the detected string type, or just
 ```
 {
   tag: number
+}
+```
+
+##### XummTranslation
+
+```
+{
+  uuid: string
 }
 ```
 

@@ -20,7 +20,7 @@ class StringTypeDetector {
   private parse() : StringType {
     const uuidv4regExp = '[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}'
     const txHash = new RegExp(`^[A-F0-9]{64}$`, 'i')
-    const signRequest = new RegExp(`^${uuidv4regExp}$`, 'i')
+    const uuid = new RegExp(`^${uuidv4regExp}$`, 'i')
     const pairing = new RegExp(`^${uuidv4regExp}\.${uuidv4regExp}$`, 'i')
     const possibleAccountAddress = new RegExp(/[rX][rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{23,50}/)
     const possibleFamSeed = new RegExp(/(^s|:[ \t]s)[rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{20,}/)
@@ -41,7 +41,7 @@ class StringTypeDetector {
         if (xummUrl.length > 1) {
           this.strippedInput = decodeURI(xummUrl[1])
 
-          if (signRequest.test(this.strippedInput)) {
+          if (uuid.test(this.strippedInput)) {
             // xummUrl[0].toLowerCase() === 'sign'
             return StringType.XummPayloadReference
           }
@@ -144,6 +144,11 @@ class StringTypeDetector {
       if (tag >= 0 && tag < Math.pow(2, 32)){
         return StringType.XrplDestinationTag
       }
+    }
+
+    if(this.strippedInput.slice(0, 19) === 'xumm://translation/' && uuid.test(this.strippedInput.slice(19))){
+      this.strippedInput = this.strippedInput.slice(19)
+      return StringType.XummTranslation
     }
 
     return StringType.Invalid

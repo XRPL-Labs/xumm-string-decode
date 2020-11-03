@@ -2,6 +2,7 @@ import StringTypeDetector from './StringTypeDetector'
 import {
   XummPayloadReference,
   XummPairingToken,
+  XummTranslation,
   XrplDestination,
   XrplDestinationTag,
   XrplTransactionHash,
@@ -150,6 +151,12 @@ class StringDecoder {
   getXummPairingToken() : XummPairingToken {
     return {
       token: this.input.getStrippedInput()
+    }
+  }
+
+  getXummTranslation() : XummTranslation {
+    return {
+      uuid: this.input.getStrippedInput()
     }
   }
 

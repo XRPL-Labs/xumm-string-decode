@@ -1,5 +1,6 @@
 export * from './XummPayloadReference'
 export * from './XummPairingToken'
+export * from './XummTranslation'
 export * from './XrplDestination'
 export * from './XrplDestinationTag'
 export * from './XrplTransactionHash'

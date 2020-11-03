@@ -16,6 +16,8 @@ type ValidType = {
     'XrplSecret' |
     'XrplSignedTransaction' |
     'XrplTransactionTemplate' |
+    'XrplDestinationTag' |
+    'XummTranslation' |
     'PayId'
   output:
     StringType.XummPayloadReference |
@@ -24,6 +26,8 @@ type ValidType = {
     StringType.XrplSecret |
     StringType.XrplSignedTransaction |
     StringType.XrplTransactionTemplate |
+    StringType.XrplDestinationTag |
+    StringType.XummTranslation |
     StringType.PayId
 }
 

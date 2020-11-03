@@ -165,5 +165,12 @@
     {
         "string": "-123",
         "output": false
+    },
+    {
+        "string": "xumm://translation/35c40848-e769-4529-812c-a8c28f45bb74",
+        "type": "XummTranslation",
+        "output": {
+            "uuid": "35c40848-e769-4529-812c-a8c28f45bb74"
+        }
     }
 ]
