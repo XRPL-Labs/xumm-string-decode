@@ -142,6 +142,7 @@ class StringTypeDetector {
       const dTagParts = possibleDestinationTag.exec(this.strippedInput)
       const tag = Number(dTagParts[2])
       if (tag >= 0 && tag < Math.pow(2, 32)){
+        this.strippedInput = String(tag)
         return StringType.XrplDestinationTag
       }
     }

@@ -138,6 +138,13 @@
         }
     },
     {
+        "string": "Tag: 32768",
+        "type": "XrplDestinationTag",
+        "output": {
+            "tag": 32768
+        }
+    },
+    {
         "string": "0",
         "type": "XrplDestinationTag",
         "output": {
