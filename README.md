@@ -22,6 +22,11 @@ The lib. exports:
   - `StringType` (enum)
   - `SecretType` (enum)
 
+## Resources
+
+- Source: https://github.com/XRPL-Labs/xumm-string-decode
+- NPM package: https://www.npmjs.com/package/xumm-string-decode
+- [Browserified](https://jsfiddle.net/WietseWind/cj4xftg9) (CDN): https://cdn.jsdelivr.net/npm/xumm-string-decode/dist/browserified.js
 
 ## Sample
 
