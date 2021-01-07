@@ -18,6 +18,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/node": "^12.12.54",
+    "browserify": "^17.0.0",
     "jest": "^26.4.0",
     "nodemon": "^1.19.4",
     "ts-jest": "^26.2.0",
@@ -26,11 +27,11 @@
     "tslint": "^5.20.1",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^3.9.7",
-    "uglifyjs-webpack-plugin": "^1.1.4",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^4.44.1"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && browserify -r .:xumm-string-decode -o dist/browserified.js",
     "clean": "rm -rf dist",
     "watch": "tsc -w",
     "start": "tsc --build -w",
