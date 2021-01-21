@@ -125,6 +125,9 @@ class StringTypeDetector {
     }
 
     if (possibleAccountAddress.test(this.strippedInput)) {
+      if(this.input.slice(0, 10) === 'xrpl://to=') {
+        this.input = this.input.slice(7)
+      }
       const re = /^[a-z]+:[ ]*([rX][rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{23,50})/i
       this.input = this.input.replace(re, x => {
         return x.split(':').slice(1).join(':').trim()
