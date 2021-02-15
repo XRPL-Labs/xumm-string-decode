@@ -12,6 +12,14 @@
         }
     },
     {
+        "string": "xrpl://to=rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY&dt=123123&amount=10.5",
+        "output": {
+            "to": "rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY",
+            "amount": "10.5",
+            "tag": 123123
+        }
+    },
+    {
         "string": "rAhDr1qUEG4gHXt6m6zyRE4oogDDWmYvcgotCqyyEpArk8",
         "output": {
             "to": "rAhDr1qUEG4gHXt6m6zyRE4oogDDWmYvcgotCqyyEpArk8"
