@@ -70,7 +70,7 @@ class StringTypeDetector {
         this.strippedInput = url.search.substring(1)
       }
 
-      if (url.path.toLowerCase().match(/detect\/xapp/)) {
+      if (url.path.toLowerCase().match(/detect\/xapp/) && url.hostname === 'xumm.app') {
         const xappName = url.path.toLowerCase().match(/xapp:([^\/?]+)/)
         if (xappName) {
           this.strippedInput = xappName[1]
