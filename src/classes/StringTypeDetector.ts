@@ -69,6 +69,16 @@ class StringTypeDetector {
       } else if (url.search !== '' && possibleAccountAddress.test(url.search)) {
         this.strippedInput = url.search.substring(1)
       }
+
+      if (url.path.toLowerCase().match(/detect\/xapp/)) {
+        const xappName = url.path.toLowerCase().match(/xapp:([^\/?]+)/)
+        if (xappName) {
+          this.strippedInput = xappName[1]
+          this.searchParams = searchParams
+
+          return StringType.XummXapp
+        }
+      }
     } catch (e) {
       // Continue
     }

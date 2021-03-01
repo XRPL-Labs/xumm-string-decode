@@ -9,7 +9,8 @@ import {
   XrplSecret,
   XrplSignedTransaction,
   XrplTransactionTemplate,
-  PayId
+  PayId,
+  XummXapp
 } from '../types'
 import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
@@ -190,6 +191,32 @@ class StringDecoder {
     return {
       jsonhex: this.input.getStrippedInput().trim()
     }
+  }
+
+  getXummXapp() : XummXapp {
+    const output = {
+      xapp: this.input.getStrippedInput().toLowerCase().trim()
+    }
+
+    const path = this.input.getRawInput().split('/').pop().split('?')[0]
+    if (typeof path === 'string' && path !== '' && path !== 'xapp:' + output.xapp) {
+      Object.assign(output, {
+        path: this.input.getRawInput().split('/').pop().split('?')[0]
+      })
+    }
+
+    if (this.input.getSearchParams().toString() !== '') {
+      const params = {}
+      this.input.getSearchParams().forEach((v, k) => {
+        Object.assign(params, {
+          [k]: v
+        })
+      })
+      Object.assign(output, {
+        params
+      })
+    }
+    return output
   }
 
   getAny() : any {

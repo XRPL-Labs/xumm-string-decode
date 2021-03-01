@@ -179,5 +179,36 @@
         "output": {
             "uuid": "35c40848-e769-4529-812c-a8c28f45bb74"
         }
+    },
+    {
+        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry",
+        "type": "XummXapp",
+        "output": {
+            "xapp": "app.xumm.aml-inquiry"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry/test",
+        "type": "XummXapp",
+        "output": {
+            "xapp": "app.xumm.aml-inquiry",
+            "path": "test"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry/test?someParam[]=true&more_info=123",
+        "type": "XummXapp",
+        "output": {
+            "xapp": "app.xumm.aml-inquiry",
+            "path": "test",
+            "params": {
+                "someParam[]": "true",
+                "more_info": "123"
+            }
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/xapp/app.xumm.aml-inquiry",
+        "output": false
     }
 ]

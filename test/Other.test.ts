@@ -18,7 +18,8 @@ type ValidType = {
     'XrplTransactionTemplate' |
     'XrplDestinationTag' |
     'XummTranslation' |
-    'PayId'
+    'PayId' |
+    'XummXapp'
   output:
     StringType.XummPayloadReference |
     StringType.XummPairingToken |
@@ -28,7 +29,8 @@ type ValidType = {
     StringType.XrplTransactionTemplate |
     StringType.XrplDestinationTag |
     StringType.XummTranslation |
-    StringType.PayId
+    StringType.PayId |
+    StringType.XummXapp
 }
 
 describe('Non-XrplDestination', () => {
