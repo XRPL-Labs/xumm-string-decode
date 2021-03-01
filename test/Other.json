@@ -245,5 +245,36 @@
     {
         "string": "https://xumm.app/detect/secret?otherProp=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
         "output": false
+    },
+    {
+        "string": "https://xumm.app/detect/feature:secret?type=offline-secret-numbers",
+        "type": "XummFeature",
+        "output": {
+            "feature": "secret",
+            "type": "offline-secret-numbers"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/feature:secret?type=some-other-feature",
+        "type": "XummFeature",
+        "output": {
+            "feature": "secret",
+            "type": "some-other-feature"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/feature:secret?type=offline-secret-numbers&hasChecksum=true",
+        "type": "XummFeature",
+        "output": {
+            "feature": "secret",
+            "type": "offline-secret-numbers",
+            "params": {
+                "hasChecksum": "true"
+            }
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/feature:secret?someProp=some-other-feature",
+        "output": false
     }
 ]

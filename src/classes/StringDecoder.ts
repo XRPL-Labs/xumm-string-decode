@@ -10,6 +10,7 @@ import {
   XrplSignedTransaction,
   XrplTransactionTemplate,
   PayId,
+  XummFeature,
   XrplAltFamilySeedAlphabet,
   XummXapp
 } from '../types'
@@ -209,6 +210,29 @@ class StringDecoder {
       const params = {}
       this.input.getSearchParams().forEach((v, k) => {
         if (['name', 'type', 'alphabet'].indexOf(k) < 0) {
+          Object.assign(params, {
+            [k]: v
+          })
+        }
+      })
+      if (Object.keys(params).length > 0) {
+        Object.assign(output, {params})
+      }
+    }
+
+    return output
+  }
+
+  getXummFeature() : XummFeature {
+    const output = {
+      feature: this.input.getStrippedInput().trim(),
+      type: this.input.getSearchParams().get('type').trim()
+    }
+
+    if (this.input.getSearchParams().toString() !== '') {
+      const params = {}
+      this.input.getSearchParams().forEach((v, k) => {
+        if (['type', 'feature'].indexOf(k) < 0) {
           Object.assign(params, {
             [k]: v
           })

@@ -20,6 +20,7 @@ type ValidType = {
     'XummTranslation' |
     'PayId' |
     'XrplAltFamilySeedAlphabet' |
+    'XummFeature' |
     'XummXapp'
   output:
     StringType.XummPayloadReference |
@@ -32,6 +33,7 @@ type ValidType = {
     StringType.XummTranslation |
     StringType.PayId |
     StringType.XrplAltFamilySeedAlphabet |
+    StringType.XummFeature |
     StringType.XummXapp
 }
 

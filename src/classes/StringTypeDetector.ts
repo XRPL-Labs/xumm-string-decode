@@ -92,6 +92,15 @@ class StringTypeDetector {
 
         return StringType.Invalid
       }
+
+      if (url.path.toLowerCase().match(/detect\/feature:([a-z0-9-]+)/) && url.hostname === 'xumm.app') {
+        if (typeof searchParams.get('type') === 'string' && searchParams.get('type') !== '') {
+          this.strippedInput = url.path.toLowerCase().match(/detect\/feature:([a-z0-9-]+)/)[1]
+          this.searchParams = searchParams
+
+          return StringType.XummFeature
+        }
+      }
     } catch (e) {
       // Continue
     }
