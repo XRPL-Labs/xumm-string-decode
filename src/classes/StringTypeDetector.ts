@@ -79,6 +79,19 @@ class StringTypeDetector {
           return StringType.XummXapp
         }
       }
+
+      if (url.path.toLowerCase().match(/detect\/secret/) && url.hostname === 'xumm.app') {
+        if (typeof searchParams.get('type') === 'string' && typeof searchParams.get('name') === 'string') {
+          if (searchParams.get('type').toLowerCase() === 'alt-family-seed') {
+            this.searchParams = searchParams
+            this.strippedInput = searchParams.get('name')
+
+            return StringType.XrplAltFamilySeedAlphabet
+          }
+        }
+
+        return StringType.Invalid
+      }
     } catch (e) {
       // Continue
     }

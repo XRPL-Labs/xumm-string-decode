@@ -210,5 +210,40 @@
     {
         "string": "https://xumm.app/detect/xapp/app.xumm.aml-inquiry",
         "output": false
+    },
+    {
+        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "type": "XrplAltFamilySeedAlphabet",
+        "output": {
+            "name": "CasinoCoin",
+            "alphabet": "cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz"
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz&someParam=true",
+        "type": "XrplAltFamilySeedAlphabet",
+        "output": {
+            "name": "CasinoCoin",
+            "alphabet": "cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+            "params": {
+                "someParam": "true"
+            }
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=XXXcpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "type": "XrplAltFamilySeedAlphabet",
+        "output": {
+            "name": "CasinoCoin",
+            "alphabet": false
+        }
+    },
+    {
+        "string": "https://xumm.app/detect/secret?type=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "output": false
+    },
+    {
+        "string": "https://xumm.app/detect/secret?otherProp=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "output": false
     }
 ]

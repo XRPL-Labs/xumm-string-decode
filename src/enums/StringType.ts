@@ -10,6 +10,7 @@ enum StringType {
   XrplSecret,
   IlpStreamInstruction,
   PayId,
+  XrplAltFamilySeedAlphabet,
   XummXapp,
   Invalid
 }

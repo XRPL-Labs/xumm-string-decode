@@ -10,6 +10,7 @@ import {
   XrplSignedTransaction,
   XrplTransactionTemplate,
   PayId,
+  XrplAltFamilySeedAlphabet,
   XummXapp
 } from '../types'
 import SecretType from '../enums/SecretType'
@@ -193,6 +194,34 @@ class StringDecoder {
     }
   }
 
+  getXrplAltFamilySeedAlphabet() : XrplAltFamilySeedAlphabet {
+    const alphabet = this.input.getSearchParams().get('alphabet')
+
+    const output = {
+      name: this.input.getStrippedInput().trim(),
+      alphabet: typeof alphabet === 'string'
+        && alphabet.match(/^[rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{58}$/)
+          ? alphabet
+          : false
+    }
+
+    if (this.input.getSearchParams().toString() !== '') {
+      const params = {}
+      this.input.getSearchParams().forEach((v, k) => {
+        if (['name', 'type', 'alphabet'].indexOf(k) < 0) {
+          Object.assign(params, {
+            [k]: v
+          })
+        }
+      })
+      if (Object.keys(params).length > 0) {
+        Object.assign(output, {params})
+      }
+    }
+
+    return output
+  }
+
   getXummXapp() : XummXapp {
     const output = {
       xapp: this.input.getStrippedInput().toLowerCase().trim()
@@ -216,6 +245,7 @@ class StringDecoder {
         params
       })
     }
+
     return output
   }
 
