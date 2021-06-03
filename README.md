@@ -1,4 +1,4 @@
-# XUMM String Decode
+# XUMM String Decode [![npm version](https://badge.fury.io/js/xumm-string-decode.svg)](https://www.npmjs.com/xumm-string-decode) [![GitHub Actions NodeJS status](https://github.com/XRPL-Labs/xumm-string-decode/workflows/NodeJS/badge.svg?branch=main)](https://github.com/XRPL-Labs/xumm-string-decode/actions) [![CDNJS Browserified](https://img.shields.io/badge/cdnjs-browserified-blue)](https://cdn.jsdelivr.net/gh/XRPL-Labs/xumm-string-decode@main/dist/browser.js) [![CDNJS Browserified Minified](https://img.shields.io/badge/cdnjs-minified-orange)](https://cdn.jsdelivr.net/gh/XRPL-Labs/xumm-string-decode@main/dist/browser.min.js)
 
 JS/TS lib to decode strings for the xrpl-labs.com XUMM app (when scanning a QR code).
 
