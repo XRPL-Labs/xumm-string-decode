@@ -33,7 +33,7 @@ The lib. exports:
 ### 1. Detect string type
 
 ```
-const someString = 'https://ripple.com//send?to=rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT&amount=30&dt=123'
+const someString = 'https://xrplf.org//send?to=rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT&amount=30&dt=123'
 const detected = new StringTypeDetector(someString)
 ```
 
