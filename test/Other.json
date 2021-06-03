@@ -208,6 +208,17 @@
         }
     },
     {
+        "string": "https://xumm.app/detect/xapp:xumm.sample.giraffe?test=true&blah=hi",
+        "type": "XummXapp",
+        "output": {
+            "xapp": "xumm.sample.giraffe",
+            "params": {
+                "test": "true",
+                "blah": "hi"
+            }
+        }
+    },
+    {
         "string": "https://xumm.app/detect/xapp/app.xumm.aml-inquiry",
         "output": false
     },
