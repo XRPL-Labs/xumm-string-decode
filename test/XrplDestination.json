@@ -247,6 +247,20 @@
         }
     },
     {
+        "string": "xrpl://rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ?amount=10",
+        "output": {
+            "to": "rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ",
+            "amount": "10"
+        }
+    },
+    {
+        "string": "https://some.site/test/rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ?amount=12",
+        "output": {
+            "to": "rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ",
+            "amount": "12"
+        }
+    },
+    {
         "string": "xxxxx:rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg?dt=987",
         "output": {
             "to": "rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg",

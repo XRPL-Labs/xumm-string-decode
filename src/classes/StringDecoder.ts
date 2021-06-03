@@ -46,10 +46,12 @@ class StringDecoder {
          * Try invalid or non-URI syntax
          */
         if (this.input.getRawInput().match(/\?[a-zA-Z0-9_\[\]]+=.+/)
-          && this.input.getRawInput().replace(/^\?/, '').split('?').length === 2) {
+          && this.input.getRawInput().replace(/^\?/, '').split('?').length === 2
+          && !this.input.getRawInput().match(/:\/\//)) {
           // r9JynAPy1xUEW2bAYK36fy5dKKNNNKK1Z5?dt=123
           tryParseUri = 'https://localhost/?to=' + this.input.getRawInput().replace(/^\?/, '').replace(/\?/, '&')
-        } else if (this.input.getRawInput().match(/^r[a-zA-Z0-9]{20,}[-: ]+[0-9]+$/)) {
+        } else if (this.input.getRawInput().match(/^r[a-zA-Z0-9]{20,}[-: ]+[0-9]+$/)
+          && !this.input.getRawInput().match(/:\/\//)) {
           // rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT:1234
           tryParseUri = 'https://localhost/?to=' + this.input.getRawInput().replace(/[-: ]+/, '&dt=')
         } else if (this.input.getRawInput().match(/\?r[a-zA-Z0-9]{20,}/)
@@ -57,11 +59,15 @@ class StringDecoder {
           // scheme://uri/folders?rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY:123
           tryParseUri = this.input.getRawInput().replace(/\?/, '?to=')
         } else if (this.input.getRawInput().trim().match(/[\n\r]/)
-          && this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}.*[\r\n\t]+|[\r\n\t]+.*r[a-zA-Z0-9]{20,}/g)) {
+          && this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}.*[\r\n\t]+|[\r\n\t]+.*r[a-zA-Z0-9]{20,}/g)
+          && !this.input.getRawInput().match(/:\/\//)) {
           const to = this.input.getRawInput().match(/r[a-zA-Z0-9]{20,}/)
           const tag = this.input.getRawInput().slice(to.index + to[0].length).match(/[0-9]+/g)
           tryParseUri = 'https://localhost/?to=' + to[0] +
             (tag && typeof tag[0] === 'string' && tag[0] !== '' ? '&dt=' + tag[0] : '')
+        } else if (this.input.getRawInput().match(/\/r[a-zA-Z0-9]{20,}[\?&]/)) {
+          tryParseUri = this.input.getRawInput()
+            .replace(/(\/)(r[a-zA-Z0-9]{20,})([\?&])/, '$1?to=$2&')
         }
 
         /**
