@@ -285,13 +285,13 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:network-endpoint?type=custom-endpoint&name=bcfabbc9da8f1b5ff37e",
+        "string": "https://xumm.app/detect/feature:network-endpoint?type=custom-endpoint&hash=bcfabbc9da8f1b5ff37e",
         "type": "XummFeature",
         "output": {
             "feature": "network-endpoint",
             "type": "custom-endpoint",
             "params": {
-                "name": "bcfabbc9da8f1b5ff37e"
+                "hash": "bcfabbc9da8f1b5ff37e"
             }
         }
     },
