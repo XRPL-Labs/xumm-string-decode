@@ -285,16 +285,13 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:network-endpoint?type=custom-endpoint&name=Hooks%20Testnet&endpoint=wss://hooks-testnet.xrpl-labs.com&explorer_tx=https://hooks-testnet.xrpl-labs.com/explorer/tx/%7Btxid%7D&explorer_account=https://hooks-testnet.xrpl-labs.com/explorer/account/%7Baccount%7D",
+        "string": "https://xumm.app/detect/feature:network-endpoint?type=custom-endpoint&name=bcfabbc9da8f1b5ff37e",
         "type": "XummFeature",
         "output": {
             "feature": "network-endpoint",
             "type": "custom-endpoint",
             "params": {
-                "name": "Hooks Testnet",
-                "endpoint": "wss://hooks-testnet.xrpl-labs.com",
-                "explorer_account": "https://hooks-testnet.xrpl-labs.com/explorer/account/{account}",
-                "explorer_tx": "https://hooks-testnet.xrpl-labs.com/explorer/tx/{txid}"
+                "name": "bcfabbc9da8f1b5ff37e"
             }
         }
     },
