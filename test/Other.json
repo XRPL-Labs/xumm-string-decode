@@ -29,6 +29,13 @@
         }
     },
     {
+        "string": "xumm://511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "type": "XummPayloadReference",
+        "output": {
+            "uuid": "511dc0b7-ef5c-4cc6-8eb5-7071133a86b4"
+        }
+    },
+    {
         "string": "https://xumm.app/pair/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4.511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
         "type": "XummPairingToken",
         "output": {

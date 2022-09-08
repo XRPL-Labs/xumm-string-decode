@@ -187,6 +187,11 @@ class StringTypeDetector {
       return StringType.XummTranslation
     }
 
+    if(this.strippedInput.slice(0, 7) === 'xumm://' && uuid.test(this.strippedInput.slice(7))){
+      this.strippedInput = this.strippedInput.slice(7)
+      return StringType.XummPayloadReference
+    }
+
     return StringType.Invalid
   }
 
