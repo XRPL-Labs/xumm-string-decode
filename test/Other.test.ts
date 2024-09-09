@@ -2,12 +2,12 @@
 
 import {StringTypeDetector, StringDecoder, StringType} from '../src'
 
-type InvalidType = {
+interface InvalidType {
   string: string
   output: false
 }
 
-type ValidType = {
+interface ValidType {
   string: string
   type:
     'XummPayloadReference' |
@@ -38,23 +38,31 @@ type ValidType = {
 }
 
 describe('Non-XrplDestination', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('./Other').filter((g: InvalidType | ValidType) => {
     return g.output === false
   }).forEach((g: InvalidType) => {
-    const detected = new StringTypeDetector(g.string)
-    it('should detect error in [ ' + g.string + ' ]', () => {
-      expect(detected.getType()).toEqual(StringType.Invalid)
+    const inputs = g.string.includes('%{host}') ? StringTypeDetector.validHosts.map((h) => g.string.replace('%{host}', h)) : [g.string];
+    inputs.forEach(str => {
+      const detected = new StringTypeDetector(str)
+      it('should detect error in [ ' + str + ' ]', () => {
+        expect(detected.getType()).toEqual(StringType.Invalid)
+      })
     })
   })
 
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('./Other').filter((g: InvalidType | ValidType) => {
     return g.output !== false
   }).forEach((g: ValidType) => {
-    const detected = new StringTypeDetector(g.string)
-    it('should detect and decode [ ' + StringType[detected.getType()] + ' ] from [ ' + g.string + ' ]', () => {
-      expect(StringType[detected.getType()]).toEqual(g.type)
-      const decoded = new StringDecoder(detected)
-      expect(decoded['get' + StringType[detected.getType()]]()).toEqual(g.output)
+    const inputs = g.string.includes('%{host}') ? StringTypeDetector.validHosts.map((h) => g.string.replace('%{host}', h)) : [g.string];
+    inputs.forEach(str => {
+      const detected = new StringTypeDetector(str)
+      it('should detect and decode [ ' + StringType[detected.getType()] + ' ] from [ ' + str + ' ]', () => {
+        expect(StringType[detected.getType()]).toEqual(g.type)
+        const decoded = new StringDecoder(detected)
+        expect(decoded['get' + StringType[detected.getType()]]()).toEqual(g.output)
+      })
     })
   })
 })

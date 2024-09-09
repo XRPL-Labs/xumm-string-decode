@@ -1,3 +1,6 @@
+import * as URL from 'url'
+import * as URLSearchParams from '@ungap/url-search-params'
+
 import StringTypeDetector from './StringTypeDetector'
 import {
   XummPayloadReference,
@@ -16,8 +19,7 @@ import {
 } from '../types'
 import SecretType from '../enums/SecretType'
 import {tryUrlParams} from '../helpers'
-import * as URL from 'url'
-import * as URLSearchParams from '@ungap/url-search-params'
+
 
 class StringDecoder {
   input: StringTypeDetector
@@ -36,7 +38,7 @@ class StringDecoder {
         let tryParseUri: string = this.input.getRawInput()
         if (this.input.getRawInput().match(/^\?/)) {
           tryParseUri = 'https://localhost/' + this.input.getRawInput()
-        } else if (this.input.getRawInput().match(/^[a-z0-9\[\]]+=.+/)) {
+        } else if (this.input.getRawInput().match(/^[a-z0-9[\]]+=.+/)) {
           tryParseUri = 'https://localhost/?' + this.input.getRawInput()
         } else if (this.input.getRawInput().match(/^[rX][a-zA-Z0-9]{20,}/)) {
           tryParseUri = 'https://localhost/?to=' + this.input.getRawInput()
@@ -45,7 +47,7 @@ class StringDecoder {
         /**
          * Try invalid or non-URI syntax
          */
-        if (this.input.getRawInput().match(/\?[a-zA-Z0-9_\[\]]+=.+/)
+        if (this.input.getRawInput().match(/\?[a-zA-Z0-9_[\]]+=.+/)
           && this.input.getRawInput().replace(/^\?/, '').split('?').length === 2
           && !this.input.getRawInput().match(/:\/\//)) {
           // r9JynAPy1xUEW2bAYK36fy5dKKNNNKK1Z5?dt=123
@@ -55,7 +57,7 @@ class StringDecoder {
           // rPdvC6ccq8hCdPKSPJkPmyZ4Mi1oG2FFkT:1234
           tryParseUri = 'https://localhost/?to=' + this.input.getRawInput().replace(/[-: ]+/, '&dt=')
         } else if (this.input.getRawInput().match(/\?r[a-zA-Z0-9]{20,}/)
-          && !this.input.getRawInput().match(/[\?&]to=r[a-zA-Z0-9]{20,}/)) {
+          && !this.input.getRawInput().match(/[?&]to=r[a-zA-Z0-9]{20,}/)) {
           // scheme://uri/folders?rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY:123
           tryParseUri = this.input.getRawInput().replace(/\?/, '?to=')
         } else if (this.input.getRawInput().trim().match(/[\n\r]/)
@@ -65,17 +67,17 @@ class StringDecoder {
           const tag = this.input.getRawInput().slice(to.index + to[0].length).match(/[0-9]+/g)
           tryParseUri = 'https://localhost/?to=' + to[0] +
             (tag && typeof tag[0] === 'string' && tag[0] !== '' ? '&dt=' + tag[0] : '')
-        } else if (this.input.getRawInput().match(/\/r[a-zA-Z0-9]{20,}[\?&]/)) {
+        } else if (this.input.getRawInput().match(/\/r[a-zA-Z0-9]{20,}[?&]/)) {
           tryParseUri = this.input.getRawInput()
-            .replace(/(\/)(r[a-zA-Z0-9]{20,})([\?&])/, '$1?to=$2&')
+            .replace(/(\/)(r[a-zA-Z0-9]{20,})([?&])/, '$1?to=$2&')
         }
 
         /**
          * Recover destination tag notation
          */
-        if (tryParseUri.match(/[\?&]to=r[a-zA-Z0-9]{20,}[-: ]+[0-9]+/)
-          && !tryParseUri.match(/[\?&](dt|tag|destinationtag)=/)) {
-          tryParseUri = tryParseUri.replace(/([\?&]to=r[a-zA-Z0-9]{20,})[-: ]+([0-9]+)/, '$1&dt=$2')
+        if (tryParseUri.match(/[?&]to=r[a-zA-Z0-9]{20,}[-: ]+[0-9]+/)
+          && !tryParseUri.match(/[?&](dt|tag|destinationtag)=/)) {
+          tryParseUri = tryParseUri.replace(/([?&]to=r[a-zA-Z0-9]{20,})[-: ]+([0-9]+)/, '$1&dt=$2')
         }
 
         /**
@@ -84,7 +86,7 @@ class StringDecoder {
         try {
           const url = URL.parse(tryParseUri)
           searchParams = new URLSearchParams(url.query || '')
-        } catch (e) {
+        } catch {
           // Continue
         }
       }
@@ -95,11 +97,11 @@ class StringDecoder {
     if (searchParams && searchParams.has('to')) {
       const XrplDestinationOutput = {
         to: searchParams.get('to'),
-        tag: <undefined>tryUrlParams(searchParams, ['tag', 'dt', 'dtag', 'destinationtag'], Number),
-        invoiceid: <undefined>tryUrlParams(searchParams, ['invoice', 'invoiceid', 'invid', 'inv'], String),
-        amount: <undefined>tryUrlParams(searchParams, ['amount'], String),
-        currency: <string>tryUrlParams(searchParams, ['currency', 'iou'], String),
-        issuer: <string>tryUrlParams(searchParams, ['issuer'], String)
+        tag: tryUrlParams(searchParams, ['tag', 'dt', 'dtag', 'destinationtag'], Number) as undefined,
+        invoiceid: tryUrlParams(searchParams, ['invoice', 'invoiceid', 'invid', 'inv'], String) as undefined,
+        amount: tryUrlParams(searchParams, ['amount'], String) as undefined,
+        currency: tryUrlParams(searchParams, ['currency', 'iou'], String) as string,
+        issuer: tryUrlParams(searchParams, ['issuer'], String) as string
       }
 
       if (XrplDestinationOutput.currency !== undefined
@@ -279,7 +281,7 @@ class StringDecoder {
     return output
   }
 
-  getAny() : any {
+  getAny() {
     return this['get' + this.input.getTypeName()]()
   }
 

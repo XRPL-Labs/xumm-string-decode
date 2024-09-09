@@ -1,3 +1,3 @@
-export type XrplTransactionHash = {
+export interface XrplTransactionHash {
   txhash: string
 }

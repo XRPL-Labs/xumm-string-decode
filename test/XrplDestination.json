@@ -81,14 +81,14 @@
         }
     },
     {
-        "string": "https://xumm.app/detect///r9JynAPy1xUEW2bAYK36fy5dKKNNNKK1Z5?dt=123",
+        "string": "https://%{host}/detect///r9JynAPy1xUEW2bAYK36fy5dKKNNNKK1Z5?dt=123",
         "output": {
             "to": "r9JynAPy1xUEW2bAYK36fy5dKKNNNKK1Z5",
             "tag": 123
         }
     },
     {
-        "string": "https://xumm.app/detect/request:rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ?dt=123&amount=1.337&currency=4555525300000000000000000000000000000000&issuer=rs5hzzF7RzdV2Ub7Fv14Z1ShjuCrnL7FEX",
+        "string": "https://%{host}/detect/request:rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ?dt=123&amount=1.337&currency=4555525300000000000000000000000000000000&issuer=rs5hzzF7RzdV2Ub7Fv14Z1ShjuCrnL7FEX",
         "output": {
             "to": "rwietsevLFg8XSmG3bEZzFein1g8RBqWDZ",
             "tag": 123,
@@ -265,20 +265,20 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT",
+        "string": "https://%{host}/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT",
         "output": {
             "to": "rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT"
         }
     },
     {
-        "string": "https://xumm.app/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT&amount=123",
+        "string": "https://%{host}/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT&amount=123",
         "output": {
             "to": "rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT",
             "amount": "123"
         }
     },
     {
-        "string": "https://xumm.app/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT?browserqr=true&",
+        "string": "https://%{host}/detect/request:rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT?browserqr=true&",
         "output": {
             "to": "rJPD5WAKg9ozzQ6FCdt5Heot5nbztqB9CT"
         }

@@ -1,3 +1,3 @@
-export type XrplSignedTransaction = {
+export interface XrplSignedTransaction {
   txblob: string
 }

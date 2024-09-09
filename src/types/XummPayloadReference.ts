@@ -1,3 +1,3 @@
-export type XummPayloadReference = {
+export interface XummPayloadReference {
   uuid: string
 }

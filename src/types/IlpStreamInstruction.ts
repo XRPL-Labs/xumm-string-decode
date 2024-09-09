@@ -2,7 +2,7 @@
  * Reserved for future usage
  */
 
-export type IlpStreamInstruction = {
+export interface IlpStreamInstruction {
   destination: string,
   sharedsecret: string,
   interval?: number,

@@ -1,14 +1,17 @@
-import StringType from '../enums/StringType'
-import * as URL from 'url'
 import * as URLSearchParams from '@ungap/url-search-params'
+import * as URL from 'url'
+
+import StringType from '../enums/StringType'
 
 class StringTypeDetector {
   private input: string
   private originalInput: string
   private strippedInput: string
   private type: StringType
-  private url: boolean = false
+  private url = false
   private searchParams: URLSearchParams
+
+  public static validHosts = ['xumm.app', 'xaman.app']
 
   public constructor(input: string) {
     this.input = input
@@ -17,26 +20,30 @@ class StringTypeDetector {
     this.type = this.parse()
   }
 
+  private isValidHost = (host: string): boolean => {
+    return StringTypeDetector.validHosts.includes(host)
+  }
+
   private parse() : StringType {
     const uuidv4regExp = '[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}'
     const txHash = new RegExp(`^[A-F0-9]{64}$`, 'i')
     const uuid = new RegExp(`^${uuidv4regExp}$`, 'i')
-    const pairing = new RegExp(`^${uuidv4regExp}\.${uuidv4regExp}$`, 'i')
+    const pairing = new RegExp(`^${uuidv4regExp}.${uuidv4regExp}$`, 'i')
     const possibleAccountAddress = new RegExp(/[rX][rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{23,50}/)
     const possibleFamSeed = new RegExp(/(^s|:[ \t]s)[rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz]{20,}/)
     const possiblePrivateKey = new RegExp(/^(ED|00)([A-F0-9]{2}){32}$/i)
     const possibleTransactionBlob = new RegExp(/([A-F0-9]{2}){34,}/i)
     const possibleMnemonic = new RegExp(/([a-z]{2,}\s){11,24}[a-z]{2,}/i)
-    const possiblePayId = new RegExp(/^(.*)\$([a-z0-9-_\.]+.*)$/i)
+    const possiblePayId = new RegExp(/^(.*)\$([a-z0-9-_.]+.*)$/i)
     const possibleDestinationTag = new RegExp(/^(.+:[\t ]*)*([0-9]+)$/)
 
     try {
       const url = URL.parse(this.input)
 
       /**
-       * Check for xumm deeplink syntax
+       * Check for xumm/xaman deeplink syntax
        */
-      if (url.host.toLowerCase().replace(/^www\./, '') === 'xumm.app' && url.pathname !== null) {
+      if (this.isValidHost(url.host.toLowerCase().replace(/^www\./, '') ) && url.pathname !== null) {
         const xummUrl = url.pathname.replace(/\/+/g, '/').replace(/^\//, '').split('/')
         if (xummUrl.length > 1) {
           this.strippedInput = decodeURI(xummUrl[1])
@@ -70,8 +77,8 @@ class StringTypeDetector {
         this.strippedInput = url.search.substring(1)
       }
 
-      if (url.path.toLowerCase().match(/detect\/xapp/) && url.hostname === 'xumm.app') {
-        const xappName = url.path.toLowerCase().match(/xapp:([^\/?]+)/)
+      if (url.path.toLowerCase().match(/detect\/xapp/) && this.isValidHost(url.hostname)) {
+        const xappName = url.path.toLowerCase().match(/xapp:([^/?]+)/)
         if (xappName) {
           this.strippedInput = xappName[1]
           this.searchParams = searchParams
@@ -80,7 +87,7 @@ class StringTypeDetector {
         }
       }
 
-      if (url.path.toLowerCase().match(/detect\/secret/) && url.hostname === 'xumm.app') {
+      if (url.path.toLowerCase().match(/detect\/secret/) && this.isValidHost(url.hostname)) {
         if (typeof searchParams.get('type') === 'string' && typeof searchParams.get('name') === 'string') {
           if (searchParams.get('type').toLowerCase() === 'alt-family-seed') {
             this.searchParams = searchParams
@@ -93,7 +100,7 @@ class StringTypeDetector {
         return StringType.Invalid
       }
 
-      if (url.path.toLowerCase().match(/detect\/feature:([a-z0-9-]+)/) && url.hostname === 'xumm.app') {
+      if (url.path.toLowerCase().match(/detect\/feature:([a-z0-9-]+)/) && this.isValidHost(url.hostname)) {
         if (typeof searchParams.get('type') === 'string' && searchParams.get('type') !== '') {
           this.strippedInput = url.path.toLowerCase().match(/detect\/feature:([a-z0-9-]+)/)[1]
           this.searchParams = searchParams
@@ -101,7 +108,7 @@ class StringTypeDetector {
           return StringType.XummFeature
         }
       }
-    } catch (e) {
+    } catch {
       // Continue
     }
 
@@ -121,8 +128,8 @@ class StringTypeDetector {
     let uriDecodedStrippedInput
     try {
       uriDecodedStrippedInput = decodeURIComponent(this.strippedInput)
-    } catch (e) {
-      //
+    } catch{
+      // Continue
     }
 
     if (uriDecodedStrippedInput && possiblePayId.test(uriDecodedStrippedInput)) {
@@ -137,7 +144,7 @@ class StringTypeDetector {
           this.strippedInput = payIdParts[1] + '$' + payIdParts[2]
           return StringType.PayId
         }
-      } catch (e) {
+      } catch{
         // Continue
       }
     }
@@ -149,7 +156,7 @@ class StringTypeDetector {
         if (textToJson !== null && Object.keys(textToJson).length > 0) {
           return StringType.XrplTransactionTemplate
         }
-      } catch (e) {
+      } catch {
         // Continue
       }
 
@@ -187,8 +194,11 @@ class StringTypeDetector {
       return StringType.XummTranslation
     }
 
-    if(this.strippedInput.slice(0, 7) === 'xumm://' && uuid.test(this.strippedInput.slice(7))){
-      this.strippedInput = this.strippedInput.slice(7)
+    if (
+      (this.strippedInput.slice(0, 7) === 'xumm://' || this.strippedInput.slice(0, 8) === 'xaman://') &&
+      uuid.test(this.strippedInput.slice(this.strippedInput.indexOf('://') + 3))
+    ) {
+      this.strippedInput = this.strippedInput.slice(this.strippedInput.indexOf('://') + 3)
       return StringType.XummPayloadReference
     }
 

@@ -1,3 +1,3 @@
-export type XummTranslation = {
+export interface XummTranslation {
   uuid: string
 }

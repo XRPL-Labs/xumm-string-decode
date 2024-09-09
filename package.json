@@ -2,7 +2,7 @@
   "name": "xumm-string-decode",
   "version": "0.6.2",
   "license": "ISC",
-  "description": "JS/TS lib to decode strings for the xrpl-labs.com XUMM app",
+  "description": "JS/TS lib to decode strings for the Xaman app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -11,24 +11,21 @@
     "dist/**/*.d.ts"
   ],
   "dependencies": {
-    "@ungap/url-search-params": "^0.1.4",
-    "debug": "^4.3.1",
-    "url": "^0.11.0"
+    "@ungap/url-search-params": "0.2.2",
+    "url": "0.11.4"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.20",
-    "@types/node": "^12.19.15",
-    "browserify": "^17.0.0",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "ts-jest": "^26.4.4",
-    "ts-loader": "^3.2.0",
-    "ts-node": "8.0.3",
-    "tslint": "^5.20.1",
-    "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^3.9.7",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack": "^5.16.0"
+    "@eslint/js": "9.10.0",
+    "@types/eslint__js": "8.42.3",
+    "@types/jest": "29.5.12",
+    "@types/node": "22.5.4",
+    "browserify": "17.0.0",
+    "eslint": "9.10.0",
+    "jest": "29.7.0",
+    "nodemon": "3.1.4",
+    "ts-jest": "29.2.5",
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.4.0"
   },
   "scripts": {
     "build": "tsc && browserify -r .:xumm-string-decode -o dist/browserified.js",
@@ -38,7 +35,7 @@
     "dev": "clear;node node_modules/nodemon/bin/nodemon.js dist/evaluate.dev.js",
     "prepublish": "npm run clean && npm run test && npm run build",
     "test": "jest --ci --verbose",
-    "lint": "tslint -p ./",
+    "lint": "eslint .",
     "test-8": "docker run -t --rm -v $(pwd):/usr/src/app node:8-slim sh -c 'cd /usr/src/app/; npm run test'",
     "test-10": "docker run -t --rm -v $(pwd):/usr/src/app node:10-slim sh -c 'cd /usr/src/app/; npm run test'",
     "test-12": "docker run -t --rm -v $(pwd):/usr/src/app node:12-slim sh -c 'cd /usr/src/app/; npm run test'"
@@ -60,7 +57,7 @@
       "src/*"
     ],
     "ext": "js",
-    "delay": "100",
+    "delay": 100,
     "events": {
       "start": "echo \"\\033c\\x1b[36m\"$(date)\"\\n\\x1b[0m\""
     }

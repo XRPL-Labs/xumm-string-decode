@@ -1,4 +1,4 @@
-export type XrplDestination = {
+export interface XrplDestination {
   to: string
   tag?: number
   invoiceid?: string

@@ -1,3 +1,3 @@
-export type XrplDestinationTag = {
+export interface XrplDestinationTag {
   tag: number
 }

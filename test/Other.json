@@ -15,14 +15,14 @@
         }
     },
     {
-        "string": "https://xumm.app/tx/1200032280000000240000003241833237B8665D2F4E00135E8DE646589F68400000000000000C732103709723A5967EAAED571B71DB511D87FA44CC7CDDF827A37F457A25E14D862BCD74473045022100C6A6999BD33153C6A236D78438D1BFEEEC810CFE05D0E41339B577560C9143CA022074F07881F559F56593FF680049C12FC3BCBB0B73CE02338651522891D95886F981146078086881F39B191D63B528D914FEA7F8CA2293F9EA7C06636C69656E747D15426974686F6D7020746F6F6C20762E20302E302E337E0A706C61696E2F74657874E1F1",
+        "string": "https://%{host}/tx/1200032280000000240000003241833237B8665D2F4E00135E8DE646589F68400000000000000C732103709723A5967EAAED571B71DB511D87FA44CC7CDDF827A37F457A25E14D862BCD74473045022100C6A6999BD33153C6A236D78438D1BFEEEC810CFE05D0E41339B577560C9143CA022074F07881F559F56593FF680049C12FC3BCBB0B73CE02338651522891D95886F981146078086881F39B191D63B528D914FEA7F8CA2293F9EA7C06636C69656E747D15426974686F6D7020746F6F6C20762E20302E302E337E0A706C61696E2F74657874E1F1",
         "type": "XrplSignedTransaction",
         "output": {
             "txblob": "1200032280000000240000003241833237B8665D2F4E00135E8DE646589F68400000000000000C732103709723A5967EAAED571B71DB511D87FA44CC7CDDF827A37F457A25E14D862BCD74473045022100C6A6999BD33153C6A236D78438D1BFEEEC810CFE05D0E41339B577560C9143CA022074F07881F559F56593FF680049C12FC3BCBB0B73CE02338651522891D95886F981146078086881F39B191D63B528D914FEA7F8CA2293F9EA7C06636C69656E747D15426974686F6D7020746F6F6C20762E20302E302E337E0A706C61696E2F74657874E1F1"
         }
     },
     {
-        "string": "https://xumm.app/sign/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "string": "https://%{host}/sign/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
         "type": "XummPayloadReference",
         "output": {
             "uuid": "511dc0b7-ef5c-4cc6-8eb5-7071133a86b4"
@@ -36,7 +36,7 @@
         }
     },
     {
-        "string": "https://xumm.app/pair/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4.511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "string": "https://%{host}/pair/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4.511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
         "type": "XummPairingToken",
         "output": {
             "token": "511dc0b7-ef5c-4cc6-8eb5-7071133a86b4.511dc0b7-ef5c-4cc6-8eb5-7071133a86b4"
@@ -63,7 +63,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/scatter%20alert%20cliff%20spirit%20verb%20island%20margin%20apology%20shadow%20pipe%20good%20crunch%20average%20talent%20radio%20link%20employ%20bracket%20inhale%20height%20seed%20much%20shuffle%20token?qr=true",
+        "string": "https://%{host}/detect/scatter%20alert%20cliff%20spirit%20verb%20island%20margin%20apology%20shadow%20pipe%20good%20crunch%20average%20talent%20radio%20link%20employ%20bracket%20inhale%20height%20seed%20much%20shuffle%20token?qr=true",
         "type": "XrplSecret",
         "output": {
             "secretType": 2,
@@ -95,11 +95,11 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/0762EED5BA4F378FFA60621C6DEF72F4A0A579112ADA5F5D6B2A35EC27E893A5",
+        "string": "https://%{host}/detect/0762EED5BA4F378FFA60621C6DEF72F4A0A579112ADA5F5D6B2A35EC27E893A5",
         "output": false
     },
     {
-        "string": "https://xumm.app/detect/000762EED5BA4F378FFA60621C6DEF72F4A0A579112ADA5F5D6B2A35EC27E893A5",
+        "string": "https://%{host}/detect/000762EED5BA4F378FFA60621C6DEF72F4A0A579112ADA5F5D6B2A35EC27E893A5",
         "type": "XrplSecret",
         "output": {
             "secretType": 1,
@@ -107,14 +107,14 @@
         }
     },
     {
-        "string": "https://xumm.app/tx/D6E28760A232FD5726DB87CBC88189947E0672BBA2D1246CA400777877A5486A",
+        "string": "https://%{host}/tx/D6E28760A232FD5726DB87CBC88189947E0672BBA2D1246CA400777877A5486A",
         "type": "XrplTransactionHash",
         "output": {
             "txhash": "D6E28760A232FD5726DB87CBC88189947E0672BBA2D1246CA400777877A5486A"
         }
     },
     {
-        "string": "https://xumm.app/detect/test%24some.host.name/",
+        "string": "https://%{host}/detect/test%24some.host.name/",
         "type": "PayId",
         "output": {
             "payId": "test$some.host.name",
@@ -122,7 +122,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/$some.host.name/",
+        "string": "https://%{host}/detect/$some.host.name/",
         "type": "PayId",
         "output": {
             "payId": "$some.host.name",
@@ -188,14 +188,14 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry",
+        "string": "https://%{host}/detect/xapp:app.xumm.aml-inquiry",
         "type": "XummXapp",
         "output": {
             "xapp": "app.xumm.aml-inquiry"
         }
     },
     {
-        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry/test",
+        "string": "https://%{host}/detect/xapp:app.xumm.aml-inquiry/test",
         "type": "XummXapp",
         "output": {
             "xapp": "app.xumm.aml-inquiry",
@@ -203,7 +203,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/xapp:app.xumm.aml-inquiry/test?someParam[]=true&more_info=123",
+        "string": "https://%{host}/detect/xapp:app.xumm.aml-inquiry/test?someParam[]=true&more_info=123",
         "type": "XummXapp",
         "output": {
             "xapp": "app.xumm.aml-inquiry",
@@ -215,7 +215,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/xapp:xumm.sample.giraffe?test=true&blah=hi",
+        "string": "https://%{host}/detect/xapp:xumm.sample.giraffe?test=true&blah=hi",
         "type": "XummXapp",
         "output": {
             "xapp": "xumm.sample.giraffe",
@@ -226,11 +226,11 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/xapp/app.xumm.aml-inquiry",
+        "string": "https://%{host}/detect/xapp/app.xumm.aml-inquiry",
         "output": false
     },
     {
-        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "string": "https://%{host}/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
         "type": "XrplAltFamilySeedAlphabet",
         "output": {
             "name": "CasinoCoin",
@@ -238,7 +238,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz&someParam=true",
+        "string": "https://%{host}/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz&someParam=true",
         "type": "XrplAltFamilySeedAlphabet",
         "output": {
             "name": "CasinoCoin",
@@ -249,7 +249,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=XXXcpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "string": "https://%{host}/detect/secret?type=alt-family-seed&name=CasinoCoin&alphabet=XXXcpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
         "type": "XrplAltFamilySeedAlphabet",
         "output": {
             "name": "CasinoCoin",
@@ -257,15 +257,15 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/secret?type=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "string": "https://%{host}/detect/secret?type=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
         "output": false
     },
     {
-        "string": "https://xumm.app/detect/secret?otherProp=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
+        "string": "https://%{host}/detect/secret?otherProp=alt-family-seed&_name=CasinoCoin&alphabet=cpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2brdeCg65jkm8oFqi1tuvAxyz",
         "output": false
     },
     {
-        "string": "https://xumm.app/detect/feature:secret?type=offline-secret-numbers",
+        "string": "https://%{host}/detect/feature:secret?type=offline-secret-numbers",
         "type": "XummFeature",
         "output": {
             "feature": "secret",
@@ -273,7 +273,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:secret?type=some-other-feature",
+        "string": "https://%{host}/detect/feature:secret?type=some-other-feature",
         "type": "XummFeature",
         "output": {
             "feature": "secret",
@@ -281,7 +281,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:secret?type=offline-secret-numbers&hasChecksum=true",
+        "string": "https://%{host}/detect/feature:secret?type=offline-secret-numbers&hasChecksum=true",
         "type": "XummFeature",
         "output": {
             "feature": "secret",
@@ -292,7 +292,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:network-endpoint?type=custom-endpoint&hash=bcfabbc9da8f1b5ff37e",
+        "string": "https://%{host}/detect/feature:network-endpoint?type=custom-endpoint&hash=bcfabbc9da8f1b5ff37e",
         "type": "XummFeature",
         "output": {
             "feature": "network-endpoint",
@@ -303,7 +303,7 @@
         }
     },
     {
-        "string": "https://xumm.app/detect/feature:secret?someProp=some-other-feature",
+        "string": "https://%{host}/detect/feature:secret?someProp=some-other-feature",
         "output": false
     }
 ]

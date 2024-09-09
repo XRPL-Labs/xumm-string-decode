@@ -1,6 +1,6 @@
 import SecretType from '../enums/SecretType'
 
-export type XrplSecret = {
+export interface XrplSecret {
   secretType: SecretType
   familySeed?: string
   mnemonic?: string

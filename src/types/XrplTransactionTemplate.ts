@@ -1,3 +1,3 @@
-export type XrplTransactionTemplate = {
+export interface XrplTransactionTemplate {
   jsonhex: string
 }

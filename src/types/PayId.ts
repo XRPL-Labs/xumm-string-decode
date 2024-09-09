@@ -1,4 +1,4 @@
-export type PayId = {
+export interface PayId {
   payId: string
   url: string
 }

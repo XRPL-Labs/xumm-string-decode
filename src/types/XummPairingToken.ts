@@ -1,3 +1,3 @@
-export type XummPairingToken = {
+export interface XummPairingToken {
   token: string
 }
