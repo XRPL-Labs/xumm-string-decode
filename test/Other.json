@@ -36,6 +36,21 @@
         }
     },
     {
+        "string": "xaman://511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "type": "XummPayloadReference",
+        "output": {
+            "uuid": "511dc0b7-ef5c-4cc6-8eb5-7071133a86b4"
+        }
+    },
+    {
+        "string": "511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "output": false
+    },
+    {
+        "string": "yolo://511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
+        "output": false
+    },
+    {
         "string": "https://%{host}/pair/511dc0b7-ef5c-4cc6-8eb5-7071133a86b4.511dc0b7-ef5c-4cc6-8eb5-7071133a86b4",
         "type": "XummPairingToken",
         "output": {
